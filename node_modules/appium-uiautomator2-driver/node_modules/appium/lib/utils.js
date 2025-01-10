@@ -247,10 +247,10 @@ export function adjustNodePath() {
       // ! so it could break (maybe, eventually).
       // See https://gist.github.com/branneman/8048520#7-the-hack
       // @ts-ignore see above comment
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
+
       require('module').Module._initPaths();
       return true;
-    } catch (e) {
+    } catch {
       return false;
     }
   };

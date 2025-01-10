@@ -3,7 +3,7 @@ import _ from 'lodash';
 import {system, fs, npm} from '@appium/support';
 import axios from 'axios';
 import {exec} from 'teen_process';
-import semver from 'semver';
+import * as semver from 'semver';
 import os from 'node:os';
 import {npmPackage} from './utils';
 import B from 'bluebird';
@@ -115,7 +115,7 @@ export async function getGitRev(useGithubApiFallback = false) {
         cwd: __dirname,
       });
       return stdout.trim();
-    } catch (ign) {}
+    } catch {}
   }
 
   if (!useGithubApiFallback) {
@@ -132,7 +132,7 @@ export async function getGitRev(useGithubApiFallback = false) {
         },
       })
     ).data?.object?.sha;
-  } catch (ign) {}
+  } catch {}
   return null;
 }
 
@@ -149,7 +149,7 @@ async function getGitTimestamp(commitSha, useGithubApiFallback = false) {
         cwd: __dirname,
       });
       return stdout.trim();
-    } catch (ign) {}
+    } catch {}
   }
 
   if (!useGithubApiFallback) {
@@ -164,7 +164,7 @@ async function getGitTimestamp(commitSha, useGithubApiFallback = false) {
         },
       })
     ).data?.tagger?.date;
-  } catch (ign) {}
+  } catch {}
   return null;
 }
 
@@ -194,7 +194,7 @@ export function checkNodeOk() {
 
 export async function showBuildInfo() {
   await updateBuildInfo(true);
-  console.log(JSON.stringify(getBuildInfo())); // eslint-disable-line no-console
+  console.log(JSON.stringify(getBuildInfo()));
 }
 
 /**
@@ -356,7 +356,7 @@ export async function requireDir(root, requireWriteable = true, displayName = 'f
   if (requireWriteable) {
     try {
       await fs.access(root, fs.constants.W_OK);
-    } catch (e) {
+    } catch {
       throw new Error(
         `The ${displayName} '${root}' must be ` +
         `writeable for the current user account '${os.userInfo().username}'`

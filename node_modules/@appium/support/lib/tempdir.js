@@ -1,5 +1,5 @@
 /* This library is originated from temp.js at http://github.com/bruce/node-temp */
-import fs from './fs';
+import {fs} from './fs';
 import os from 'os';
 import nodePath from 'path';
 import cnst from 'constants';
@@ -123,7 +123,7 @@ const openDir = tempDir;
  *
  * @returns {Promise<string>} A temp directory path whcih is defined as static in the same process
  */
-// eslint-disable-next-line require-await
+
 async function staticDir() {
   return _static;
 }

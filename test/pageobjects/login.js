@@ -6,13 +6,14 @@ export default class LoginView {
     get passwordField() {
         return $('~test-Password');
     }
-get errorText(){
+
+    get errorText() {
         return $('//android.widget.TextView[@text="Username is required"]')
-}
-    /*get autoFilled() {
-        return $('//android.widget.TextView[@text="standard_user"]');
     }
-*/
+
+   get homeText(){
+        return $('//android.widget.TextView[@text="PRODUCTS"]')
+   }
     get loginButton() {
         return $('~test-LOGIN');
     }
@@ -23,7 +24,10 @@ get errorText(){
         await this.loginButton.click();
     }
 
-    async verifyEmptyLogin(){
+    async verifyEmptyLogin() {
         return await this.errorText.getText();
+    }
+    async verifiedLogIn(){
+        return await this.homeText.getText();
     }
 }

@@ -49,7 +49,6 @@ describe('Verify login page', () => {
         await loginPage.verifyLogin(testData.username, testData.password);
         const homeText = await loginPage.verifiedLogIn();
         expect(homeText).toEqual('PRODUCTS');
-
         const isLoggedIn = await loginPage.verifyisLggedIn();
         expect(isLoggedIn).toBeTrue();
         if (!state.isLoggedIn) {

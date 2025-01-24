@@ -2,7 +2,7 @@ import testData from '../utilities/data.json';
 import state from '../utilities/state.js';
 import FilterPage from "../../pageobjects_ios/filterPage.js";
 
-let LogInView; // Declare a variable for conditional import
+let LogInView;
 
 if (driver.isAndroid) {
     LogInView = (await import("../../pageobjects_android/loginPage.js")).default;
@@ -46,15 +46,12 @@ describe('Verify login page', () => {
     });
 
     it('should login with valid credentials', async () => {
-        // Explicit login test to verify functionality
         await loginPage.verifyLogin(testData.username, testData.password);
         const homeText = await loginPage.verifiedLogIn();
         expect(homeText).toEqual('PRODUCTS');
 
         const isLoggedIn = await loginPage.verifyisLggedIn();
         expect(isLoggedIn).toBeTrue();
-
-        // Update state if not already done
         if (!state.isLoggedIn) {
             state.isLoggedIn = true;
             console.log('Login successful. Global state updated:', state.isLoggedIn);

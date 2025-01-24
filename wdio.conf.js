@@ -53,14 +53,11 @@ export const config = {
     //
     capabilities: [{
         // capabilities for local Appium web tests on an Android Emulator
-        platformName: "Android",
-        "appium:deviceName": "Pixel 7",
-        "appium:platformVersion": "11.0",
-        "appium:automationName": "UiAutomator2",
-        "appium:app": "app/saucelab.apk",
-        "appium:appPackage": "com.swaglabsmobileapp",
-        "appium:appActivity": "com.swaglabsmobileapp.SplashActivity",
-        "appium:noReset": false
+        "appium:platformName": "IOS",
+        "appium:deviceName": "iPhone 16",
+        "appium:platformVersion": "18.2",
+        "appium:automationName": "XCUItest",
+        "appium:app": "app/UICatalog.app"
     }],
 
     //

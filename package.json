@@ -13,6 +13,6 @@
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.js",
-    "test:debug": "wdio wdio.conf.js"
+    "test:debug": "node --inspect-brk ./node_modules/.bin/wdio wdio.conf.js"
   }
 }

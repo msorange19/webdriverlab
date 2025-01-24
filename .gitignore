@@ -2,3 +2,7 @@
 .idea/shelf/
 .idea/shelf/
 .idea/
+app/iOS.sauce.app
+app/UICatalog.app
+app/UIKitCatalog
+app/lab.apk
